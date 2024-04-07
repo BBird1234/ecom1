@@ -15,4 +15,6 @@ public interface ProductService {
     Product getById(Long pid) throws NoProductExistInRepository;
 
     Product add1(Product product);
+
+  public Long deleteProduct(Long pid);
 }

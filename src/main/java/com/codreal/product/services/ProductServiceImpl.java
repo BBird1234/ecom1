@@ -41,5 +41,10 @@ public class ProductServiceImpl implements ProductService{
         return productRepository.save(product);
     }
 
+    @Override
+    public Long deleteProduct(Long pid){
+      productRepository.deleteById(pid);
+        return pid;
+    }
 
 }

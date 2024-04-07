@@ -3,6 +3,7 @@ package com.codreal.product.controller;
 import com.codreal.product.exceptions.NoProductExistInRepository;
 import com.codreal.product.models.Product;
 import com.codreal.product.services.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
+@RequiredArgsConstructor
 public class ProductController {
 
     @Autowired
@@ -21,6 +23,11 @@ public class ProductController {
     @GetMapping("/check")
     public String check(){
         return "Working...!";
+    }
+
+    @DeleteMapping("/product/{pid}")
+    public Long deleteProduct(@PathVariable Long pid) {
+       return productService.deleteProduct(pid);
     }
 
     @GetMapping("/all")
